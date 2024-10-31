@@ -6,7 +6,7 @@ export function Home() {
         <div className='h-100'>
             <Topo />
             <div className='bg-light d-flex flex-column flex-md-row'>
-                <a href='/gameshelf/tabela' className='banner m-5 d-none d-md-flex'>
+                <a href='/tabela' className='banner m-5 d-none d-md-flex'>
                     <img src={Bg} alt="" />
                 </a>
                 <div className='texto-home mx-auto m-4 text-center'>
@@ -19,8 +19,8 @@ export function Home() {
                         <br />
                         <b className='d-none d-md-block'>Clique na imagem ao lado para ver sua tabela de jogos!</b>
                     </div>
-                    <a href="/gameshelf/insert" className='btn btn-primary m-3'>Insira seus jogos!</a>
-                    <a href="/gameshelf/tabela" className='btn btn-primary m-3'>Veja seus jogos!</a>
+                    <a href="/insert" className='btn btn-primary m-3'>Insira seus jogos!</a>
+                    <a href="/tabela" className='btn btn-primary m-3'>Veja seus jogos!</a>
                 </div>
             </div>
         </div>
