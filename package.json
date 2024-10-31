@@ -1,16 +1,17 @@
 {
-  "homepage": "https://aojoaojo.github.io/gameshelf",
+  "homepage": "https://aojoaojo.github.io/",
   "name": "boardgames",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -f",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
