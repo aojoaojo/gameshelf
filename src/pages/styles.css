@@ -1,0 +1,54 @@
+.input-boardgame {
+    background-color: #452A22;
+    color: white;
+}
+
+.button-inserir {
+    background-color: black;
+    color: white;
+}
+
+.insert-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto-home {
+    color: black;
+    flex: 50%;
+    width: 80%;
+}
+
+.texto-home h1 {
+    color: #6C416E;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    color: white;
+    flex: 30%;
+    overflow: hidden;
+    background-size: contain;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 2px #6C416E;
+    z-index: 2;
+}
