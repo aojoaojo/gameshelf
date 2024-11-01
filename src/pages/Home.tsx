@@ -1,6 +1,8 @@
 import './styles.css'
 import Bg from '../assets/bg.webp'
 import { Topo } from '../components/topo/index'
+import { TabelaRoute } from './TabelaRoute'
+import { Insert } from './Insert'
 export function Home() {
     return (
         <div className='h-100'>
@@ -22,6 +24,8 @@ export function Home() {
                     <a href="/gameshelf/insert" className='btn btn-primary m-3'>Insira seus jogos!</a>
                     <a href="/gameshelf/tabela" className='btn btn-primary m-3'>Veja seus jogos!</a>
                 </div>
+                <TabelaRoute />
+                <Insert />
             </div>
         </div>
     )
