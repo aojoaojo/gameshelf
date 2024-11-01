@@ -1,5 +1,5 @@
 {
-  "homepage": "https://aojoaojo.github.io/",
+  "homepage": "https://aojoaojo.github.io/GameShelf",
   "name": "boardgames",
   "private": true,
   "version": "0.0.0",
@@ -10,8 +10,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

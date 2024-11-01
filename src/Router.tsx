@@ -6,9 +6,9 @@ import { TabelaRoute } from './pages/TabelaRoute';
 export function Router() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/insert" element={<Insert />} />
-            <Route path="/tabela" element={<TabelaRoute/>} />
+            <Route path="/gameshelf/" element={<Home />} />
+            <Route path="/gameshelf/insert" element={<Insert />} />
+            <Route path="/gameshelf/tabela" element={<TabelaRoute/>} />
         </Routes>
     )
 }
