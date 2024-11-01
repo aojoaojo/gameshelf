@@ -2,6 +2,7 @@
     height: 40rem;
     margin: 2rem 4rem 0 4rem;
     overflow: hidden;
+    overflow-x: auto;
 }
 
 .tbody {
@@ -13,12 +14,12 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #FFF3CD;
+    background: #6a236f;
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #a49974;
+    background: #d1a2d2;
     border-radius: 100vw;
 }
 
