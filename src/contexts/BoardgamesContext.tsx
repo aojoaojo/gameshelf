@@ -44,10 +44,19 @@ export function BoardgamesContextProvider({ children }: BoardgamesContextProvide
     }, []);
 
     const addGame = useCallback((game: Jogo[]) => {
-        if (game.length > 1) {
-            setGames([...games, ...game]);
-        } else {
-            setGames([...games, game[0]]);
+        const gameNames = games.map((game) => game.nome);
+        game = game.filter((game) => !gameNames.includes(game.nome));
+        if (game && game.length > 0) {
+            try {
+                if (game.length > 1) {
+                    setGames([...games, ...game]);
+                } else {
+                    setGames([...games, game[0]]);
+                }
+            }
+            catch (error) {
+                console.error("Erro ao inserir jogo. Verifique o formato do JSON. Ele deve ser uma lista de objetos.", error);
+            }
         }
     }, [games]);
 

@@ -51,7 +51,7 @@ export function Insert() {
 
             // Adiciona todos os jogos ao contexto de uma vez só
             addGame(parsedGames);
-
+            gameInput.value = "";
         } catch (error) {
             console.error("Erro ao inserir jogo. Verifique o formato do JSON. Ele deve ser uma lista de objetos.", error);
         }
