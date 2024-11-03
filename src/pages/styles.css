@@ -8,15 +8,6 @@
     color: var(--white);
 }
 
-.insert-div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .texto-home {
     color: black;
     flex: 50%;
@@ -51,4 +42,49 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px 2px var(--purple-800);
     z-index: 2;
+}
+
+.bt-home {
+    background-color: var(--purple-500);
+    color: var(--white);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.bt-home:hover {
+    border: 1px solid var(--purple-500);
+}
+
+.insert-textarea {
+    height: 70%;
+    color: var(--purple-900);
+}
+
+.container-insert {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.insert-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.link-ia {
+    color: var(--purple-500);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-ia:hover {
+    color: var(--purple-900);
+    
+
 }
