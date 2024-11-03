@@ -1,4 +1,4 @@
-import './App.css'
+import './global.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { BoardgamesContextProvider } from './contexts/BoardgamesContext'

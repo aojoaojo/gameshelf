@@ -1,0 +1,14 @@
+:root {
+    --white: #ffffff;
+
+    --purple-300: #9F75FF;
+    --purple-500: #6f4ebd;
+    --purple-800: #3e2a6c;
+    --purple-900: #1b0033;
+}
+
+body {
+    background-color: var(--white);
+    height: 100vh;
+    overflow: hidden;
+}

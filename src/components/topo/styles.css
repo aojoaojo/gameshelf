@@ -1,11 +1,11 @@
 .cabecalho {
-    background-color: #543256;
-    color: white;
+    background-color: var(--purple-900);
+    color: var(--white);
     text-align: center;
     padding: 1rem 0 1rem 0;
     transition: 1s;
 }
 
 .cabecalho:hover {
-    transform:matrix(1.1,0,0,1.1,0,0);
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
 }

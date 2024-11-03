@@ -1,11 +1,11 @@
 .input-boardgame {
-    background-color: #452A22;
-    color: white;
+    background-color: var(--purple-500);
+    color: var(--white);
 }
 
 .button-inserir {
     background-color: black;
-    color: white;
+    color: var(--white);
 }
 
 .insert-div {
@@ -23,8 +23,8 @@
     width: 80%;
 }
 
-.texto-home h1 {
-    color: #6C416E;
+.texto-home h2 {
+    color: var(--purple-900);
     font-size: 2.5em;
     font-weight: bold;
     text-align: center;
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     display: flex;
-    color: white;
+    color: var(--white);
     flex: 30%;
     overflow: hidden;
     background-size: contain;
@@ -49,6 +49,6 @@
 
 .banner:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px 2px #6C416E;
+    box-shadow: 0 0 20px 2px var(--purple-800);
     z-index: 2;
 }
