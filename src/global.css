@@ -13,5 +13,6 @@
 body {
     background-color: var(--white);
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

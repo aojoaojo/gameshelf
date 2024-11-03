@@ -18,10 +18,17 @@ export function Home() {
                         <br />
                         <br />
                         O seu acervo de jogos de tabuleiro ficará salvo no seu navegador.
+                        <br />
                         Então, caso você limpe o cache ou esteja em outro dispostivo não terá acesso aos seus jogos.
                         <br />
                         <br />
+                        Mas isso não te impede de inserir seus jogos novamente em outros dispositivos!
+                        <br />
+                        Posteriormente será implementado um sistema de login para salvar seus jogos na nuvem.
+                        <br />
+                        <br />
                         Para facilitar a inserção, foi criado um prompt no chatgpt para te ajudar a coletar os dados dos seus jogos e,
+                        <br />
                         portanto, alguns dados podem ser inverídicos.
                         <br />
                         <br />
