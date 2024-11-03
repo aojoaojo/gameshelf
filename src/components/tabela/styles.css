@@ -14,15 +14,15 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #6a236f;
+    background: var(--purple-300);
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #d1a2d2;
+    background: var(--purple-700);
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.494);
+    background: var(--purple-800);
 }

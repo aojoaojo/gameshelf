@@ -7,7 +7,7 @@ export function Home() {
             <Topo />
             <div className='bg-light d-flex flex-column flex-md-row'>
                 <a href='/gameshelf/tabela' className='banner m-5 d-none d-md-flex'>
-                    <img src={Bg} alt="" />
+                    <img src={Bg} alt="imagem gerada por AI mostrando coisas icônicas de boardgames" title='Ir para a estante de jogos' />
                 </a>
                 <div className='texto-home mx-auto m-4 text-center'>
                     <div>
@@ -17,10 +17,18 @@ export function Home() {
                         organizar e auxiliar na hora de escolher os seus jogos!
                         <br />
                         <br />
+                        O seu acervo de jogos de tabuleiro ficará salvo no seu navegador.
+                        Então, caso você limpe o cache ou esteja em outro dispostivo não terá acesso aos seus jogos.
+                        <br />
+                        <br />
+                        Para facilitar a inserção, foi criado um prompt no chatgpt para te ajudar a coletar os dados dos seus jogos e,
+                        portanto, alguns dados podem ser inverídicos.
+                        <br />
+                        <br />
                         <b className='d-none d-md-block'>Clique na imagem ao lado para ver sua tabela de jogos!</b>
                     </div>
-                    <a href="/gameshelf/insert" className='btn btn-primary m-3'>Insira seus jogos!</a>
-                    <a href="/gameshelf/tabela" className='btn btn-primary m-3'>Veja seus jogos!</a>
+                    <a href="/gameshelf/insert" className='btn m-3 bt-home'>Insira seus jogos!</a>
+                    <a href="/gameshelf/tabela" className='btn m-3 bt-home'>Veja seus jogos!</a>
                 </div>
             </div>
         </div>
