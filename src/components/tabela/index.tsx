@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import './styles.css';
 import { BoardgamesContext } from '../../contexts/BoardgamesContext';
 
-interface Jogo {
+export interface Jogo {
   nome: string;
   num_jogadores_min: number;
   num_jogadores_max: number;
