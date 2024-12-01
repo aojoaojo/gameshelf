@@ -1,6 +1,11 @@
 import Bg from '../assets/bg.webp'
 import { Topo } from '../components/topo/index'
+import { ExportarPorClipboard } from '../components/exportarPorClipBoard/index'
+import { ExportarPorArquivoTxt } from '../components/exportarPorArquivo/index'
 import './styles.css'
+import { Copy } from 'phosphor-react'
+import Dropdown from 'react-bootstrap/Dropdown';
+
 export function Home() {
     return (
         <div className='h-100'>
@@ -36,6 +41,15 @@ export function Home() {
                     </div>
                     <a href="/gameshelf/insert" className='btn m-3 bt-home'>Insira seus jogos!</a>
                     <a href="/gameshelf/tabela" className='btn m-3 bt-home'>Veja seus jogos!</a>
+                    <Dropdown className=''>
+                        <Dropdown.Toggle id="dropdown-basic" className='btn bt-home'>
+                            Exportar
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={ExportarPorClipboard}>Exportar por cópia <Copy /></Dropdown.Item>
+                            <Dropdown.Item onClick={ExportarPorArquivoTxt}>Exportar por arquivo</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
             </div>
         </div>
