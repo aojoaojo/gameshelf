@@ -11,12 +11,18 @@ export function Sorteio() {
 
   function sortear() {
     const gamesFiltered = games.filter(
-      (game) => game.num_jogadores_max >= Number(numPlayers.value)
+      (game) => game.num_jogadores_max >= Number(numPlayers.value) && game.num_jogadores_min <= Number(numPlayers.value)
     );
     const sorteio =
       gamesFiltered[Math.floor(Math.random() * gamesFiltered.length)];
     setSorteio([sorteio]);
-    setSorteioRealizado(true);
+    if (sorteio === undefined){
+      alert("Não há jogos disponíveis para o número de jogadores informado")
+      return;
+    }
+    else{
+      setSorteioRealizado(true);
+    }
   }
 
   return (
@@ -26,10 +32,14 @@ export function Sorteio() {
         <input
           id="numPlayers"
           name="numPlayers"
-          className="d-flex flex-fill"
-          placeholder="Número de jogadores que irão jogar"
+          className="d-flex flex-fill input-home"
+          placeholder="Número de jogadores"
+          type="number"
+          min="1"
+          max="20"
+          autoComplete="off"
         ></input>
-        <button className="btn btn-primary" onClick={sortear}>
+        <button className="btn bt-home" onClick={sortear}>
           Sortear
         </button>
       </div>

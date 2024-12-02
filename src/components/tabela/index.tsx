@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import './styles.css';
 import { BoardgamesContext } from '../../contexts/BoardgamesContext';
+import { Trash } from 'phosphor-react';
 
 export interface Jogo {
   nome: string;
@@ -25,9 +26,8 @@ export function Tabela() {
 
   useEffect(() => {
     const savedGames = JSON.parse(localStorage.getItem('games') || '[]');
-    console.log(savedGames);
     setSortedData(savedGames);
-}, []);
+  }, []);
 
   const sortData = (key: keyof Jogo) => {
     let direction: 'asc' | 'desc' = 'asc';
@@ -52,6 +52,15 @@ export function Tabela() {
     return sortConfig.direction === 'asc' ? '↑' : '↓';
   };
 
+  function deleteGame(){
+    if (!window.confirm('Tem certeza que deseja deletar este jogo?')) return;
+    const row = document.activeElement?.parentElement?.parentElement;
+    const gameName = row?.children[0].textContent;
+    const newGames = sortedData.filter((game) => game.nome !== gameName);
+    setSortedData(newGames);
+    localStorage.setItem('games', JSON.stringify(newGames));
+  }
+
   return (
     <div className='wrapper overflow-y-scroll'>
       <table className="table table-bordered text-center align-middle table-fixed">
@@ -69,6 +78,7 @@ export function Tabela() {
             <th onClick={() => sortData('dificuldade')}>Dificuldade {getSortIndicator('dificuldade')}</th>
             <th onClick={() => sortData('classificacao')}>Classificação {getSortIndicator('classificacao')}</th>
             <th onClick={() => sortData('expansoes')}>Expansões {getSortIndicator('expansoes')}</th>
+            <th>Excluir</th>
           </tr>
         </thead>
         <tbody>
@@ -85,7 +95,14 @@ export function Tabela() {
               <td>{jogo.idade_minima}</td>
               <td>{jogo.dificuldade}</td>
               <td>{jogo.classificacao}</td>
-              <td>{jogo.expansoes ? jogo.expansoes : 'N/A'}</td>
+              <td id='expansao'>
+                <div className='expansoes' title={jogo.expansoes ? jogo.expansoes : 'N/A'}>
+                  {jogo.expansoes ? jogo.expansoes : 'N/A'}
+                </div>
+              </td>
+              <td>
+                <button className='btn bt-excluir' onClick={deleteGame}><Trash /></button>
+              </td>
             </tr>
           ))}
         </tbody>

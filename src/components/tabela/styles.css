@@ -26,3 +26,16 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--purple-800);
 }
+
+.expansoes {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-height: 4rem;
+    max-width: 30rem;
+    overflow: hidden;
+}
+
+.bt-excluir:hover {
+    background-color: var(--red-500);
+    color: var(--white);
+}
