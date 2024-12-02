@@ -85,6 +85,8 @@
 
 .link-ia:hover {
     color: var(--purple-900);
-    
+}
 
+.total-jogos {
+    margin: 1rem 4rem;
 }

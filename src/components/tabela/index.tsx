@@ -52,7 +52,7 @@ export function Tabela() {
     return sortConfig.direction === 'asc' ? '↑' : '↓';
   };
 
-  function deleteGame(){
+  function deleteGame() {
     if (!window.confirm('Tem certeza que deseja deletar este jogo?')) return;
     const row = document.activeElement?.parentElement?.parentElement;
     const gameName = row?.children[0].textContent;
