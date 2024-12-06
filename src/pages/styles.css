@@ -88,5 +88,11 @@
 }
 
 .total-jogos {
-    margin: 1rem 4rem;
+    margin: 1rem 4rem 0;
+}
+
+.home-img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }

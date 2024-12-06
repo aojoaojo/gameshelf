@@ -10,8 +10,8 @@ export function TabelaRoute() {
     return (
         <div className='fundo min-vh-100 flex-column justify-content-center'>
             <Topo />
-            <Tabela />
             <div className='total-jogos'><b>Total de jogos:</b> <b>{games.length}</b></div>
+            <Tabela />
             <Sorteio />
         </div>
     )

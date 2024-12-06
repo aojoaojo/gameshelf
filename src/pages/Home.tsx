@@ -12,7 +12,7 @@ export function Home() {
             <Topo />
             <div className='bg-light d-flex flex-column flex-md-row'>
                 <a href='/gameshelf/tabela' className='banner m-5 d-none d-md-flex'>
-                    <img src={Bg} alt="imagem gerada por AI mostrando coisas icônicas de boardgames" title='Ir para a estante de jogos' />
+                    <img className='home-img' src={Bg} alt="imagem gerada por AI mostrando coisas icônicas de boardgames" title='Ir para a estante de jogos' />
                 </a>
                 <div className='texto-home mx-auto m-4 text-center'>
                     <div>

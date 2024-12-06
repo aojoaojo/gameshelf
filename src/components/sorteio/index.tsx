@@ -27,7 +27,7 @@ export function Sorteio() {
 
   return (
     <div className="wrappersort">
-      <h1>Escolha um Jogo aleatóriamente</h1>
+      <h1>Sorteie um jogo</h1>
       <div className="sorteio flex-row mb-3">
         <input
           id="numPlayers"
