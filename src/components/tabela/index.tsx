@@ -20,14 +20,24 @@ export interface Jogo {
 
 export function Tabela() {
 
-  const { games } = useContext(BoardgamesContext);
+  const { games, pesquisa } = useContext(BoardgamesContext);
   const [sortedData, setSortedData] = useState<Jogo[]>(games);
   const [sortConfig, setSortConfig] = useState<{ key: keyof Jogo; direction: 'asc' | 'desc' } | null>(null);
+  const [savedGames, setSavedGames] = useState<Jogo[]>([]);
+
+  function filtraSortedData(savedGames: Jogo[] = sortedData) {
+    return savedGames.filter((jogo) => {
+      return jogo.nome.toLowerCase().includes(pesquisa.toLowerCase());
+    });
+  }
 
   useEffect(() => {
-    const savedGames = JSON.parse(localStorage.getItem('games') || '[]');
-    setSortedData(savedGames);
+    setSavedGames(JSON.parse(localStorage.getItem('games') || '[]'));
   }, []);
+
+  useEffect(() => {
+    setSortedData(filtraSortedData(savedGames));
+  }, [pesquisa, savedGames])
 
   const sortData = (key: keyof Jogo) => {
     let direction: 'asc' | 'desc' = 'asc';

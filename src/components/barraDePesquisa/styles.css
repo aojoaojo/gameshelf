@@ -1,0 +1,4 @@
+.pesquisa {
+    width: calc(100% - 8rem - 1em);
+    margin: 1rem 4rem;
+}
