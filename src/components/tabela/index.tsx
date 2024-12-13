@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect, useCallback } from 'react';
 import './styles.css';
 import { BoardgamesContext } from '../../contexts/BoardgamesContext';
 import { Trash } from 'phosphor-react';
@@ -25,11 +25,11 @@ export function Tabela() {
   const [sortConfig, setSortConfig] = useState<{ key: keyof Jogo; direction: 'asc' | 'desc' } | null>(null);
   const [savedGames, setSavedGames] = useState<Jogo[]>([]);
 
-  function filtraSortedData(savedGames: Jogo[] = sortedData) {
+  const filtraSortedData = useCallback((savedGames: Jogo[] = sortedData) => {
     return savedGames.filter((jogo) => {
       return jogo.nome.toLowerCase().includes(pesquisa.toLowerCase());
     });
-  }
+  }, [pesquisa, sortedData]);
 
   useEffect(() => {
     setSavedGames(JSON.parse(localStorage.getItem('games') || '[]'));
@@ -37,7 +37,7 @@ export function Tabela() {
 
   useEffect(() => {
     setSortedData(filtraSortedData(savedGames));
-  }, [pesquisa, savedGames])
+  }, [pesquisa, savedGames, filtraSortedData]);
 
   const sortData = (key: keyof Jogo) => {
     let direction: 'asc' | 'desc' = 'asc';
