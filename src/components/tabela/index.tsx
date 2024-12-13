@@ -20,7 +20,7 @@ export interface Jogo {
 
 export function Tabela() {
 
-  const { games, pesquisa } = useContext(BoardgamesContext);
+  const { games, pesquisa, removeGame } = useContext(BoardgamesContext);
   const [sortedData, setSortedData] = useState<Jogo[]>(games);
   const [sortConfig, setSortConfig] = useState<{ key: keyof Jogo; direction: 'asc' | 'desc' } | null>(null);
   const [savedGames, setSavedGames] = useState<Jogo[]>([]);
@@ -64,11 +64,8 @@ export function Tabela() {
 
   function deleteGame() {
     if (!window.confirm('Tem certeza que deseja deletar este jogo?')) return;
-    const row = document.activeElement?.parentElement?.parentElement;
-    const gameName = row?.children[0].textContent;
-    const newGames = sortedData.filter((game) => game.nome !== gameName);
-    setSortedData(newGames);
-    localStorage.setItem('games', JSON.stringify(newGames));
+    removeGame(sortedData[0]);
+    window.location.reload();
   }
 
   return (

@@ -13,8 +13,12 @@ interface Jogo {
     dificuldade: string;
     classificacao: number;
     expansoes: string | null;
-    pesquisa: string;
-    alteraPesquisa: (value: string) => void;
+}
+
+interface LastPlayed {
+    id: number;
+    nome: string;
+    data: string;
 }
 
 interface BoardgamesContextProviderProps {
@@ -27,6 +31,9 @@ interface BoardgamesContextData {
     saveGames: () => void;
     pesquisa: string;
     alteraPesquisa: (value: string) => void;
+    lastPlayed: LastPlayed[];
+    setLastPlayed: (game: LastPlayed[]) => void;
+    removeGame: (game: Jogo) => void;
 }
 
 export const BoardgamesContext = createContext({} as BoardgamesContextData);
@@ -40,18 +47,38 @@ export function BoardgamesContextProvider({ children }: BoardgamesContextProvide
         return [];
     });
 
-    const [pesquisa, setPesquisa] = useState('');
-
-    function alteraPesquisa(value: string) {
-        setPesquisa(value);
-    }
-
     useEffect(() => {
         const savedGames = localStorage.getItem('games');
         if (savedGames) {
             setGames(JSON.parse(savedGames));
         }
     }, []);
+
+    const [pesquisa, setPesquisa] = useState('');
+
+    const [lastPlayed, setLastPlayed] = useState<LastPlayed[]>(() => {
+        const ultimosJogados = localStorage.getItem('lastPlayed');
+        if (ultimosJogados) {
+            return JSON.parse(ultimosJogados);
+        }
+        return [];
+    });
+
+    useEffect(() => {
+        const ultimosJogados = localStorage.getItem('lastPlayed');
+        if (ultimosJogados) {
+            setLastPlayed(JSON.parse(ultimosJogados));
+        }
+    }, []);
+
+    function alteraPesquisa(value: string) {
+        setPesquisa(value);
+    }
+
+    function removeGame(game: Jogo) {
+        const newGames = games.filter((g) => g.nome !== game.nome);
+        setGames(newGames);
+    }
 
     const addGame = useCallback((game: Jogo[]) => {
         const gameNames = games.map((game) => game.nome);
@@ -72,10 +99,21 @@ export function BoardgamesContextProvider({ children }: BoardgamesContextProvide
 
     useEffect(() => {
         localStorage.setItem('games', JSON.stringify(games));
-    }, [games]);
+        localStorage.setItem('lastPlayed', JSON.stringify(lastPlayed));
+    }, [games, lastPlayed]);
 
     return (
-        <BoardgamesContext.Provider value={{ games, addGame, saveGames: () => localStorage.setItem('games', JSON.stringify(games)), pesquisa, alteraPesquisa }}>
+        <BoardgamesContext.Provider value={
+            {
+                games,
+                addGame,
+                saveGames: () => localStorage.setItem('games', JSON.stringify(games)),
+                pesquisa,
+                alteraPesquisa,
+                lastPlayed,
+                setLastPlayed,
+                removeGame
+            }}>
             {children}
         </BoardgamesContext.Provider>
     );
