@@ -41,6 +41,7 @@ export function Home() {
                     </div>
                     <a href="/gameshelf/insert" className='btn m-3 bt-home'>Insira seus jogos!</a>
                     <a href="/gameshelf/tabela" className='btn m-3 bt-home'>Veja seus jogos!</a>
+                    <a href="/gameshelf/ultimos" className='btn m-3 bt-home'>Ultimos jogados!</a>
                     <Dropdown className=''>
                         <Dropdown.Toggle id="dropdown-basic" className='btn bt-home'>
                             Exportar

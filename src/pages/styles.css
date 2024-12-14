@@ -96,3 +96,8 @@
     height: auto;
     object-fit: cover;
 }
+
+.select-game {
+    background-color: var(--purple-500);
+    color: var(--white);
+}

@@ -15,7 +15,7 @@ interface Jogo {
     expansoes: string | null;
 }
 
-interface LastPlayed {
+export interface LastPlayed {
     id: number;
     nome: string;
     data: string;
@@ -34,6 +34,7 @@ interface BoardgamesContextData {
     lastPlayed: LastPlayed[];
     setLastPlayed: (game: LastPlayed[]) => void;
     removeGame: (game: Jogo) => void;
+    removeGameFromLastPlayed: (gameToBeRemoved: LastPlayed) => void;
 }
 
 export const BoardgamesContext = createContext({} as BoardgamesContextData);
@@ -102,6 +103,12 @@ export function BoardgamesContextProvider({ children }: BoardgamesContextProvide
         localStorage.setItem('lastPlayed', JSON.stringify(lastPlayed));
     }, [games, lastPlayed]);
 
+    function removeGameFromLastPlayed(gameToBeRemoved: LastPlayed) {
+        if (!window.confirm('Tem certeza que deseja deletar este jogo?')) return;
+        const newLastPlayed = lastPlayed.filter((game) => game.id !== gameToBeRemoved.id);
+        setLastPlayed(newLastPlayed);
+    }
+
     return (
         <BoardgamesContext.Provider value={
             {
@@ -112,7 +119,8 @@ export function BoardgamesContextProvider({ children }: BoardgamesContextProvide
                 alteraPesquisa,
                 lastPlayed,
                 setLastPlayed,
-                removeGame
+                removeGame,
+                removeGameFromLastPlayed
             }}>
             {children}
         </BoardgamesContext.Provider>
