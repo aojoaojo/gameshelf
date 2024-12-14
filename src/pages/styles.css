@@ -57,6 +57,8 @@
 }
 
 .insert-textarea {
+    width: 100%;
+    max-width: 50rem;
     height: 70%;
     color: var(--purple-900);
 }
